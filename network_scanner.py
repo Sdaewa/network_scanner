@@ -5,15 +5,15 @@ import optparse
 
 def get_arguments():
     parser = optparse.OptionParser()
-    parser.add_option('-i', '--IP', dest = 'ip_address', help = 'IP Address in subnet to scan')
+    parser.add_option('-t', '--Target', dest = 'ip_target', help = 'IP Address in subnet to scan')
     (options, arguments) = parser.parse_args()
 
-    if not options.ip_address:
-        print('[-] Specify IP Address')
+    if not options.ip_target:
+        print('[-] Specify a range')
         parser.exit()
 
 
-    return options.ip_address
+    return options.ip_target
 
 
 def scan(ip):
