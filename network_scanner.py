@@ -5,7 +5,7 @@ import argparse
 
 def get_arguments():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-t', '--Target', dest = 'ip_target', help = 'IP Address in subnet to scan')
+    parser.add_argument('-r', '--Range', dest = 'ip_target', help = 'IP Address in subnet to scan')
     options = parser.parse_args()
 
     if not options.ip_target:
@@ -19,7 +19,7 @@ def scan(ip):
     arp_request = scapy.ARP(pdst = ip)
     broadcast = scapy.Ether(dst = 'ff:ff:ff:ff:ff:ff')
     arp_request_broadcast = broadcast/arp_request
-    answ_list = scapy.srp(arp_request_broadcast, timeout = 1, verbose = False)[0]
+    answ_list = scapy.srp(arp_request_broadcast, timeout = 5, verbose = False)[0]
 
     clients_list = []
 
