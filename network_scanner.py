@@ -24,7 +24,7 @@ def scan(ip):
     clients_list = []
 
     for element in answ_list:
-        client_dictionary = {'ip': element[0].psrc, 'mac': element[0].hwsrc}
+        client_dictionary = {'ip': element[1].psrc, 'mac': element[1].hwsrc}
         clients_list.append(client_dictionary)
         
     return clients_list
